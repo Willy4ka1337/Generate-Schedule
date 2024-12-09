@@ -665,13 +665,16 @@ function addGenerateBtn() {
 }
 
 function addDownloadBtn() {
-    let button = document.createElement("button")
-    button.className = "generateSchedule"
-    button.textContent = "Скачать расписание"
-    button.onclick = function() {
-        tableToExcel("schedule.xlsx")
+    if(!document.querySelector(`.sSemester > .div12345 > .generateSchedule`))
+    {
+        let button = document.createElement("button")
+        button.className = "generateSchedule"
+        button.textContent = "Скачать расписание"
+        button.onclick = function() {
+            tableToExcel("schedule.xlsx")
+        }
+        document.querySelector('.sSemester > .div12345').appendChild(button)
     }
-    document.querySelector('.sSemester > .div12345').appendChild(button)
 }
 
 socket.on("getSubjectDataFromJSON", (data) => {
