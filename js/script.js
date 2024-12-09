@@ -665,10 +665,11 @@ function addGenerateBtn() {
 }
 
 function addDownloadBtn() {
-    if(!document.querySelector(`.sSemester > .div12345 > .generateSchedule`))
+    if(!document.querySelector(`.sSemester > .div12345 > #downloadBtn`))
     {
         let button = document.createElement("button")
         button.className = "generateSchedule"
+        button.id = "downloadBtn"
         button.textContent = "Скачать расписание"
         button.onclick = function() {
             tableToExcel("schedule.xlsx")
